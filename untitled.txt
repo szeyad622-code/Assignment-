@@ -1,0 +1,76 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+
+
+    string names[5] = {"Zuck", "Shayd", "Emely", "Amjed", "Esthe"};
+    int ages[5] = {18, 19, 20, 21, 22};
+
+
+    cout << "--- Enter names and ages of 5 family members ---\n";
+
+    for (int i = 0; i < 5; i++) {
+
+        cout << "Enter name: " << names[i] << endl;
+        cout << "Enter age: " << ages[i] << endl;
+    }
+
+     string searchKey = "Amjed";
+
+    cout << "\nEnter the name to search: " << searchKey << endl;
+
+    bool found = false;
+
+    for (int i = 0; i < 5; i++) {
+
+        if (names[i] == searchKey) {
+
+            cout << searchKey
+                 << " was found and is aged "
+                 << ages[i]
+                 << endl;
+
+            found = true;
+            break;
+        }
+    }
+
+
+    for (int i = 0; i < 4; i++) {
+
+        for (int j = i + 1; j < 5; j++) {
+
+            if (names[i] > names[j]) {
+
+
+                string tempName = names[i];
+                names[i] = names[j];
+                names[j] = tempName;
+
+
+                int tempAge = ages[i];
+                ages[i] = ages[j];
+                ages[j] = tempAge;
+            }
+        }
+    }
+    
+
+    cout << "\n\n--- Sorted Family List (Alphabetical) ---\n";
+
+    for (int i = 0; i < 5; i++) {
+
+        cout << names[i]
+             << " (Age: "
+             << ages[i]
+             << ")"
+             << endl;
+    }
+
+    cout << "\n=== Code Execution Successful ===";
+
+    return 0;
+}
